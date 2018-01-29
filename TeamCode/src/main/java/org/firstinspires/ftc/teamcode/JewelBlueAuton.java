@@ -7,7 +7,8 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
-
+import android.media.MediaPlayer;
+import android.media.AudioManager;
 /**
  * Created by connorespenshade on 1/18/18.
  */
@@ -74,7 +75,19 @@ public class JewelBlueAuton extends LinearOpMode {
 
                 Double identifier = (red_avg - blue_avg) / red_avg;
 
-                if (identifier <= 0) {
+                if (identifier <=0.2) {
+//                    MediaPlayer dawae = MediaPlayer.create(JewelBlueAuton.this, R.raw.dawae);
+//
+//                    try{
+//                        dawae.setDataSource(R.raw.dawae);
+//                        dawae.setAudioStreamType(AudioManager.STREAM_MUSIC);
+//                        dawae.prepare();
+//                    } catch (Exception e) {
+//                        e.printStackTrace();
+//                    }
+//
+//                    dawae.start();
+
                     //Red
                     activatedColor = ColorType.Red;
                     sleep(500);
@@ -122,6 +135,8 @@ public class JewelBlueAuton extends LinearOpMode {
                 } else {
 
                     activatedColor = ColorType.Unknown;
+
+                    armServo.setPosition(1);
                 }
                 telemetry.addData("Activated Color", activatedColor);
                 telemetry.update();

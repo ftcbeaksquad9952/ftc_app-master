@@ -46,7 +46,7 @@ public class JewelRed extends LinearOpMode {
 
         while (opModeIsActive()) {
             armServo.setPosition(1);
-            sleep(5000);
+            sleep(1500);
             while (!moved) {
                 Double red_sum = 0.0;
                 Double blue_sum = 0.0;
@@ -90,7 +90,7 @@ public class JewelRed extends LinearOpMode {
                     gamepadDrive(0, 0, 0);
                     moved = true;
 
-                } else if (identifier <= 0.1) {
+                } else if (identifier <= 0.2) {
                     //Blue
                     activatedColor = ColorType.Blue;
                     sleep(500);
